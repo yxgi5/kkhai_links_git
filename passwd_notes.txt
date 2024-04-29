@@ -1,0 +1,50 @@
+viptusi
+www.sousi88.com
+http://www.737cn.com
+http://www.tusi8.com
+http://www.sosiba.com
+http://www.sousi8.com
+www.sousiba.vip
+www.sosiba.vip
+
+
+https://www.91xiezhen.top
+
+
+for bcompare
+
+*.mp4;*.mkv;*.avi;*.wmv;*.mov;*.m4u;*.flv;*.ts;*.mpg;*.mpeg;*.m4v;*.f4v;*.m2ts
+
+*.*
+
+
+
+
+ffmpeg -hide_banner -v warning -stats -threads 0 -thread_type frame -hwaccel dxva2 -i "input.xxx" -c:v:0 hevc_qsv -fps_mode cfr -profile:v main -preset veryfast -b:v 10M? -g 250 -keyint_min 25 -ar 44100 -b:a 128k -c:a aac -ac 2 -map_metadata -1 -map_chapters -1 -strict -2 -rtbufsize 120m -max_muxing_queue_size 1024 "output.mp4"
+
+
+for dir in `ls | grep -e "\[XIUREN秀人网\]"`;do echo $dir | sed -e 's/^\[XIUREN秀人网\] \(.*\)N./[XIUREN秀人网]\1No/';done
+for dir in `ls | grep -e "\[XIUREN秀人网\]"`;do mv -f $dir `echo $dir | sed -e 's/^\[XIUREN秀人网\] \(.*\)N./[XIUREN秀人网]\1No/'`;done
+
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+
+for dir in `ls | grep -e "\[YouMi尤蜜\]"`;do echo $dir | sed -e 's/^\[YouMi尤蜜\]\(.*\)No...../[YouMi尤蜜]\1/';done
+for dir in `ls | grep -e "\[YouMi尤蜜\]"`;do mv -f $dir `echo $dir | sed -e 's/^\[YouMi尤蜜\]\(.*\)No...../[YouMi尤蜜]\1/'`;done
+
+
+for dir in `ls | grep -e "\[YouMi尤美\]"`;do echo $dir | sed -e 's/^\[YouMi尤美\]\ \(.*\)No...../[YouMi尤蜜]\1/';done
+for dir in `ls | grep -e "\[YouMi尤美\]"`;do mv -f $dir `echo $dir | sed -e 's/^\[YouMi尤美\]\ \(.*\)No...../[YouMi尤蜜]\1/'`;done
+
+
+for dir in `ls | grep -e "\孔雀海"`;do echo $dir | sed -e 's/^孔雀海.*\(0...\).JPG/(\1.jpg/';done
+for dir in `ls | grep -e "\孔雀海"`;do mv -f $dir `echo $dir | sed -e 's/^孔雀海.*\(0...\).JPG/(\1.jpg/'`;done
+
+
+for dir in `ls | grep -e "\孔雀海"`;do echo $dir | sed -e 's/^孔雀海.*\(0...\).jpg/\1.jpg/' | sed 's/)//';done
+for dir in `ls | grep -e "\孔雀海"`;do mv -f $dir `echo $dir | sed -e 's/^孔雀海.*\(0...\).jpg/\1.jpg/' | sed 's/)//'`;done
+
+
+
+for dir in `find . -maxdepth 1 -type d -name "*"`; do cp compressed.txt $dir;done
+

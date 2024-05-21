@@ -1,0 +1,4 @@
+if didn't install sqlite3 in cygwin or msys2, 
+find a sqlite3.exe, in my case is D:\anaconda3\Library\bin\sqlite3.exe
+
+export PATH=/d/anaconda3/Library/bin:$PATH

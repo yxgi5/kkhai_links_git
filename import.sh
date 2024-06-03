@@ -24,7 +24,9 @@ CREATE TABLE IF NOT EXISTS "kkhai" (
 	"link"	TEXT,
 	"baidudisk"	TEXT,
 	"passwd"	TEXT,
-	"update"	TEXT
+	"update"	TEXT,
+	"link_valid"	TEXT,
+	"download"	TEXT
 );
 .mode csv
 .separator |

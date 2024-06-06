@@ -64,20 +64,16 @@ for folders in `find . -maxdepth 1 -type d | sed -e 's/^\.$//' | sed -e '/^$/d' 
 #for folders in $FILES
 do 
 #echo mv \"$folders\"/* .
-echo mv "${folders}"/*.7z* -t .
-mv "${folders}"/*.7z* -t .
+if [ -e "${folders}"/*.7z* ]
+    then echo mv "${folders}"/*.7z* -t .
+    mv "${folders}"/*.7z* -t .
+fi
 #mv \"$folders\"/* .
 #tar -zcvpf $folders.tar.gz $folders/*
 #7z a -sdel $folders.7z $folders/*
 #7z a -sdel -t7z -mx9 -aoa $folders.7z $folders
 #rm -rf $folders
 done
-
-#统计文件数目
-find ./ -type f | wc -l 
-
-
-
 
 
 # handle 7z.* files
@@ -353,9 +349,12 @@ echo $folders
 gio trash $folders
 done
 
-#sync
-#sync
-#sync
+sync
+sync
+sync
+
+#统计文件数目
+echo "We have" `find ./ -type d | wc -l` "folders and" `find ./ -type f | wc -l` "files in total."
 
 # restore $IFS
 IFS=$SAVEIFS

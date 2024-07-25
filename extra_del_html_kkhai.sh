@@ -75,70 +75,6 @@ fi
 #rm -rf $folders
 done
 
-
-# handle 7z.* files
-for folders in `find . -type f -name "*.7z.001"`
-#FILES=*
-#for folders in $FILES
-do 
-echo extracting $folders
-#rar x -p'https://www.91xiezhen.top' $folders
-7z x -p'https://www.91xiezhen.top' $folders
-if [ $? != 0 ]
-then
-    echo -e "\e[31mfailed!!!!!!!!!!!!!!!!!!!!\e[0m"
-    exit 1
-fi
-if [ -e *.html ]
-    then rm *.html
-    echo rm *.html
-fi
-#echo -e "rm -rf \"`echo ${folders} | sed s/.001$/.*/`\""
-#echo -e "rm -rf `echo ${folders} | sed s/.001$/.*/`"
-#rm -rf `echo \"${folders}\" | sed s/.001$/.*/`
-#echo ${folders} | sed s/.001$/.*/ | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed -e 's/ /\\ /g'
-#echo ${folders} | sed s/.001$/.*/ | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///'
-#echo rm ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed -e 's/^\(.*\).7z.*/"\1".7z.*/'
-#echo rm ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/'
-#rm ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/' | grep ' ' -z -Z
-#echo ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/' | printf '%s\0' * | grep ' ' -z -Z | xargs -r0 rm -f
-#echo ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/' | xargs -r0 printf '%s\0' | grep ' ' -z -Z | xargs -r0 rm -f
-#echo ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/' | printf '%s\0' | grep ' ' -z -Z | xargs -r0 rm
-#rm ${folders} | sed 's/.001$/.*/' | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | xargs -r0 printf '%s\0' | grep ' ' -z -Z
-#echo rm `echo ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/' | grep ' ' -z -Z `
-#rm `echo ${folders} | sed 's/.001$/.*/' | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///'`
-#echo ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/' | printf '%s\0' {} \ | grep ' ' -z -Z | xargs -r0 rm -f
-#find . -name `echo ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/'` -type f -print -exec  rm -rf  {} \;  
-
-
-#a=`echo "[aaaa]bbbb cc.dd.ee ff.gggg hhhhh[ii-jjjj].7z.001" | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$//'`
-#echo ${a}
-#ls "${a}"*
-#printf '%s\0' `ls "${a}"*`| grep ' ' -z -Z | xargs -r0 rm -f
-
-echo -e "removing `echo ${folders} | sed s/.001$/.*/`"'\n'
-regex=`echo "${folders}" | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/./'`
-#printf '%s\n' `ls "${regex}"*`
-
-#gio trash `echo "${folders}" | sed s/.001$/.*/ `
-#echo ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/' | printf '%s\0' * | grep ' ' -z -Z | xargs -r0 gio trash
-#printf '%s\0' `ls "${regex}"*` | grep ' ' -z -Z | xargs -r0 rm -f
-#printf '%s\0' `ls "${regex}"*` | grep ' ' -z -Z | xargs -r0 gio trash
-
-
-    for i in `ls "${regex}"*`
-    do
-        echo rm -f ${i}
-        printf '%s\0' ${i} | xargs -r0 rm -f
-        #printf '%s\0' ${i} | xargs -r0 gio trash
-    done
-
-rm_dummy_files
-echo -e '\n'"\e[32mEverything is OK! bye!!!!!!!!!!!!!!!!!!!!\e[0m"'\n''\n'
-#echo -e '\n'"\e[31mbye!!!!!!!!!!!!!!!!!!!!\e[0m"
-#read -n 1
-done
-
 for folders in `find . -type f -name "*.gz"`
 #FILES=*
 #for folders in $FILES
@@ -288,6 +224,70 @@ printf '%s\0' ${folders} | xargs -r0 rm -f
 
 rm_dummy_files
 echo -e '\n'"\e[32mEverything is OK! bye!!!!!!!!!!!!!!!!!!!!\e[0m"'\n''\n'
+#read -n 1
+done
+
+
+# handle 7z.* files
+for folders in `find . -type f -name "*.7z.001"`
+#FILES=*
+#for folders in $FILES
+do 
+echo extracting $folders
+#rar x -p'https://www.91xiezhen.top' $folders
+7z x -p'https://www.91xiezhen.top' $folders
+if [ $? != 0 ]
+then
+    echo -e "\e[31mfailed!!!!!!!!!!!!!!!!!!!!\e[0m"
+    exit 1
+fi
+if [ -e *.html ]
+    then rm *.html
+    echo rm *.html
+fi
+#echo -e "rm -rf \"`echo ${folders} | sed s/.001$/.*/`\""
+#echo -e "rm -rf `echo ${folders} | sed s/.001$/.*/`"
+#rm -rf `echo \"${folders}\" | sed s/.001$/.*/`
+#echo ${folders} | sed s/.001$/.*/ | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed -e 's/ /\\ /g'
+#echo ${folders} | sed s/.001$/.*/ | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///'
+#echo rm ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed -e 's/^\(.*\).7z.*/"\1".7z.*/'
+#echo rm ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/'
+#rm ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/' | grep ' ' -z -Z
+#echo ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/' | printf '%s\0' * | grep ' ' -z -Z | xargs -r0 rm -f
+#echo ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/' | xargs -r0 printf '%s\0' | grep ' ' -z -Z | xargs -r0 rm -f
+#echo ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/' | printf '%s\0' | grep ' ' -z -Z | xargs -r0 rm
+#rm ${folders} | sed 's/.001$/.*/' | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | xargs -r0 printf '%s\0' | grep ' ' -z -Z
+#echo rm `echo ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/' | grep ' ' -z -Z `
+#rm `echo ${folders} | sed 's/.001$/.*/' | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///'`
+#echo ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/' | printf '%s\0' {} \ | grep ' ' -z -Z | xargs -r0 rm -f
+#find . -name `echo ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/'` -type f -print -exec  rm -rf  {} \;  
+
+
+#a=`echo "[aaaa]bbbb cc.dd.ee ff.gggg hhhhh[ii-jjjj].7z.001" | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$//'`
+#echo ${a}
+#ls "${a}"*
+#printf '%s\0' `ls "${a}"*`| grep ' ' -z -Z | xargs -r0 rm -f
+
+echo -e "removing `echo ${folders} | sed s/.001$/.*/`"'\n'
+regex=`echo "${folders}" | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/./'`
+#printf '%s\n' `ls "${regex}"*`
+
+#gio trash `echo "${folders}" | sed s/.001$/.*/ `
+#echo ${folders} | sed -e 's/^\.$//' | sed -e '/^$/d' | sed -e 's/.\///' | sed 's/.001$/.*/' | printf '%s\0' * | grep ' ' -z -Z | xargs -r0 gio trash
+#printf '%s\0' `ls "${regex}"*` | grep ' ' -z -Z | xargs -r0 rm -f
+#printf '%s\0' `ls "${regex}"*` | grep ' ' -z -Z | xargs -r0 gio trash
+
+
+    for i in `ls "${regex}"*`
+    do
+        echo rm -f ${i}
+        printf '%s\0' ${i} | xargs -r0 rm -f
+        #printf '%s\0' ${i} | xargs -r0 gio trash
+    done
+
+rm_dummy_files
+echo -e '\n'"\e[32mEverything is OK! bye!!!!!!!!!!!!!!!!!!!!\e[0m"'\n''\n'
+#echo -e '\n'"\e[31mbye!!!!!!!!!!!!!!!!!!!!\e[0m"
 #read -n 1
 done
 

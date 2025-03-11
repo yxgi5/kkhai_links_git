@@ -1,6 +1,20 @@
 # 一些图站网盘整理的数据库
 
 
+# sql tips
+```
+$ sqlite3 kkhai.db 
+sqlite> .mode csv
+sqlite> .header off
+sqlite> .separator |
+sqlite> .out list1.csv
+sqlite> select * from kkhai where catalog = '名站机构' order by id desc;
+sqlite> .exit
+```
+
+或者`order by id desc`
+
+
 #二进制文件分割成不同大小的两份
 I have a file of 2024 bytes, I want to split this file in two parts: 300 bytes and 1724 bytes.
 

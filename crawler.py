@@ -57,11 +57,12 @@ def get_data_single(url):
             fd.write('%s\n' % url)
         print("Fail to crawl %s\ncrawl next detail page......" % url)
     else:
-        yield dict_data
+        yield dict_data, url
 
 def write_data(dict, url):
     with open('update_list.txt', 'a') as fd:
         fd.write('%s %s\n' % (url, dict))
+        print("Success to crawl %s" % url)
     pass
 
 def homeurl_handler(entrance):
@@ -69,6 +70,13 @@ def homeurl_handler(entrance):
         entrance = entrance[:-1]
 
     for dict_data,detail_url in get_dict(entrance):
+        write_data(dict_data, detail_url)
+
+def singleurl_handler(entrance):
+    if entrance[-1] =='/':
+        entrance = entrance[:-1]
+    
+    for dict_data, detail_url in get_data_single(entrance):
         write_data(dict_data, detail_url)
 
 if __name__ == '__main__':

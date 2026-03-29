@@ -80,4 +80,4 @@ def singleurl_handler(entrance):
         write_data(dict_data, detail_url)
 
 if __name__ == '__main__':
-    homeurl_handler('https://www.kakahai.org/list')
+    homeurl_handler('https://www.kchai.org/list')
